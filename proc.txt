@@ -1,0 +1,46 @@
+org 100h
+    
+mov ax,0000h
+mov cx,len
+mov si,offset st
+mov di, offset str
+call mahedi
+mahedi proc near
+back:
+mov bl,byte ptr[di]
+cmp bl,' '
+je new
+
+cmp bl,'a'
+je vowel
+cmp bl,'e'
+je vowel
+cmp bl,'i'
+je vowel
+cmp bl,'o'
+je vowel
+cmp bl,'u'
+je vowel 
+jmp x
+
+vowel:
+inc ax
+jmp x
+new:
+mov [si],ax
+inc si
+ mov ax,0000h 
+
+x:inc di
+loop back
+  ret 
+  str db 'mahedi hasan mahedi'
+len equ ($ - str)
+st db 00h,00h,00h,00h
+le equ ($ - st) 
+  
+
+
+
+                                                               
+    
